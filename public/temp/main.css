@@ -1,0 +1,229 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+@import url(https://fonts.googleapis.com/css?family=Nunito:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+:root {
+    /* --primary: #bc7aff;
+    --primary-dark: #5525a8; */
+    --primary: #ffa27a;
+    --primary-dark: #a84a25;
+    --white: #fff;
+    --black: #000f37;
+    --dark: #333;
+    --grey: #eee;
+    --danger: #d24343;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+    font-family: nunito, poppins, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+body {
+    background: var(--white);
+}
+
+body.dark {
+    --primary: #a84a25;
+    --primary-dark: #ffa27a;
+    --white: #131313;
+    --black: #e0e0e0;
+    --dark: #f4f4f4;
+    --grey: #282828;
+    --danger: #d24343;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+.container {
+    max-width: calc(1200px + 30px);
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1200px) {
+    .container {
+        max-width: 970px;
+    }
+}
+@media (max-width: 992px) {
+    html {
+        font-size: 14px;
+    }
+}
+@media (max-width: 767px) {
+    .container {
+        max-width: none;
+    }
+}
+
+.page-title {
+    margin: 0.7rem 0;
+    padding: 0.5rem;
+    font-size: 1.4rem;
+    background: var(--grey);
+    color: var(--black);
+    border-bottom: 1px solid var(--black);
+}
+
+.user-message {
+    background: var(--primary);
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    max-width: 20rem;
+    margin: 0.7rem auto;
+    border: var(--primary-dark);
+    text-align: center;
+}
+
+.user-message__error {
+    background: #ffb3b3;
+    border: 1px solid #c86262;
+}
+
+/* =================================================== */
+
+.navbar {
+    background: var(--dark);
+    padding: 0.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 2rem;
+    color: var(--white);
+    font-weight: bold;
+    cursor: pointer;
+    width: 70px;
+}
+
+.login-signup * {
+    font-weight: bold;
+}
+
+.login-signup li a {
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.logout-btn {
+    font-size: 1.2rem;
+}
+
+.login-signup li:last-child a,
+.logout-btn {
+    display: block;
+    background: var(--white);
+    color: var(--dark);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 100ms linear;
+}
+
+.login-signup li:last-child a,
+.logout-btn:hover {
+    color: var(--danger);
+    border-radius: 20px;
+}
+
+.login-signup li:last-child a:hover {
+    color: var(--primary-dark);
+    border-radius: 20px;
+}
+
+.navbar__list {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-size: 1.4rem;
+}
+
+.navbar__list li a {
+    color: var(--white);
+    transition: all 100ms linear;
+    font-size: 1.1rem;
+}
+.navbar__list li a:hover,
+.navbar__list li a:active,
+.navbar__list li a.active {
+    color: var(--primary);
+}
+
+.navbar__list.login-signup li:first-child {
+    position: relative;
+    bottom: 0.5px;
+}
+
+.theme {
+    padding: 0.3rem 0.7rem;
+    background: var(--white);
+    color: var(--black);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 100ms linear;
+    font-size: 1.3rem;
+}
+.theme:hover {
+    color: var(--primary-dark);
+}
+
+/* ---------- */
+
+.navbar li a i {
+    display: none;
+}
+
+@media screen and (max-width: 1120px) {
+    .navbar li a i {
+        display: block;
+        font-size: 1.5rem;
+        padding: 0.2rem 0.4rem;
+        background: var(--white);
+        border-radius: 3px;
+        color: var(--dark);
+    }
+    .navbar li a i:hover {
+        color: var(--primary-dark);
+    }
+
+    .navbar li a span {
+        display: none;
+    }
+
+    .navbar__list {
+        gap: 1rem;
+        font-size: 2rem;
+        position: relative;
+        z-index: 1000;
+    }
+
+    .login-signup li a {
+        font-size: 1.3rem;
+    }
+
+    .logout-btn {
+        font-size: 1.3rem;
+    }
+}
+
+/* ================================ INDEX */
+
+:root {
+    --index: calc(1vw + 1vh);
+}

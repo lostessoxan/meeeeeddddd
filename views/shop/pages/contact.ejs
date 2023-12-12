@@ -1,0 +1,69 @@
+<%- include('../../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/index.css">
+
+</head>
+<body>
+
+<%- include('../../includes/navigation.ejs') %>
+<div class="container">
+    <h2 class="page-title"><i class="uil uil-shopping-basket"></i> Shop 🌌</h2>
+</div>
+
+<!-- ----------------------- -->
+
+<%- include('../../includes/shop-navigation.ejs') %>
+
+<div class="contact">
+    <div class="container">
+        <div class="contact__content">
+            <div class="contact__left">
+                <h3>Контакты</h3>
+                <div class="row">
+                    <p>Телефон:</p> <p>+7 (812) 904-91-57</p>
+                </div>
+                <div class="row">
+                    <p>Почта:</p>
+                    <small>mail@mail.ru</small>
+                </div>
+                <div class="row">
+                    <p>Адрес:</p>
+                    <small>проспект Гагарина, 35к1, Нижний Новгород, 603057</small>
+                </div>
+            </div>
+            <div class="contact__right">
+                <div class="row">
+                    <div class="control">
+                        <label for="name">ФИО</label>
+                        <input id="name" type="text" placeholder="Андр...">
+                    </div>
+                    <div class="control">
+                        <label for="email">E-mail</label>
+                        <input id="email" type="text" placeholder="@///">
+                    </div>
+                </div>
+                <div class="control">
+                    <label for="comment">Комментарий</label>
+                    <textarea id="comment" placeholder="Комментарий"></textarea>
+                </div>
+                <div class="agree">
+                    <input type="checkbox" id="agree-checkbox">
+                    <label for="agree-checkbox">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </lab>
+                </div>
+                <button>Отправить</button>
+            </div>
+        </div>
+
+        <div class="contact__frame">
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Afbf2aa2a14e8a24e4564a63fca88754e404ba1062599597c4a8bd9193248fad3&amp;source=constructor" width="500" height="400" frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
+
+
+<%- include('../../includes/newslatter.ejs') %>
+
+<%- include('../../includes/footer.ejs') %>
+
+<!-- ----------------------- -->
+
+<%- include('../../includes/end.ejs') %>

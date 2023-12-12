@@ -1,0 +1,69 @@
+<%- include('../../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/index.css">
+
+</head>
+<body>
+
+<%- include('../../includes/navigation.ejs') %>
+<div class="container">
+    <h2 class="page-title"><i class="uil uil-shopping-basket"></i> Shop 🌌</h2>
+</div>
+
+<!-- ----------------------- -->
+
+<%- include('../../includes/shop-navigation.ejs') %>
+
+<div class="main-title">Новости</div>
+
+<div class="container">
+    <form action="/admin/add-news" method="get">
+        <button class="add-news-btn">Добавить новость <i class="uil uil-plus-circle"></i></button>
+    </form>
+</div>
+
+<div class="news">
+    <div class="container">
+        <% if (news && news.length > 0) { %>
+            <% news.forEach(article => { %>
+         
+                <div class="news__item">
+                    <a href="/news/<%= article._id %>">
+                        <div class="news__img">
+                            <!-- <img src="/img/news/1.jpg" alt=""> -->
+                            <img src="<%= article.imageUrl %>" alt="">
+                        </div>
+                        <small class="news__date"><%= article.date %></small>
+                        <h3 class="news__title"><%= article.title %></h3>
+                        <p class="news__description">
+                            <%= article.description %>
+                        </p>
+                    </a>
+                    <form class="action-form" action="/admin/delete-news" method="post">
+                        <% if (article.userId.toString() === userId.toString()) { %>
+                            <a class="news__btn edit" href="/admin/edit-news/<%= article._id %>">
+                                Edit article
+                            </a>
+
+                            <button class="news__btn">Delete article</button>
+                        <% } %>
+
+                        
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <input type="hidden" name="articleId" value="<%= article._id %>">
+                        
+                    </form>
+                </div>
+
+            <% }) %>
+        <% } %>
+    </div>
+</div>
+
+
+<%- include('../../includes/newslatter.ejs') %>
+
+<%- include('../../includes/footer.ejs') %>
+
+<!-- ----------------------- -->
+
+<%- include('../../includes/end.ejs') %>

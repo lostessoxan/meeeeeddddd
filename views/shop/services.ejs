@@ -1,0 +1,61 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/index.css">
+
+<style>
+    .header__content img {
+        transform: scaleX(1);
+    }
+
+    .about {
+        padding: 5rem 0;
+    }
+
+    .about__description:nth-of-type(1) {
+        margin: 0;
+    }
+</style>
+
+</head>
+<body>
+
+<%- include('../includes/navigation.ejs') %>
+<div class="container">
+    <h2 class="page-title"><i class="uil uil-shopping-basket"></i> Shop 🌌</h2>
+</div>
+
+<!-- ----------------------- -->
+
+<%- include('../includes/shop-navigation.ejs') %>
+
+<header class="header">
+    <div class="header__content">
+        <img src="https://gipermed.ru/upload/iblock/8a9/8a950ee5ee0b0a43982f2da35dba9995.jpg" alt="bg">
+        <div class="container">
+            <h3 class="header__title">Услуги</h3>
+            <p class="header__description">Быстрая и надежная доставка медицинского оборудования в любую точку. Качественные изделия от ведущих производителей. Опыт работы с клиниками и больницами. Безопасная и точная доставка. Упрощаем процесс доставки. Свяжитесь с нами для получения подробной информации.</p>
+        </div>
+    </div>
+</header>
+
+<section class="about">
+    <div class="container">
+        <p class="about__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+        </p>
+        <p class="about__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum 
+            dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur 
+            adipisicing elit, sed do 
+        </p>
+
+        <!-- ADVANTAGES -->
+        <%- include('../includes/advantages.ejs') %>
+    </div>
+</section>
+
+
+<%- include('../includes/newslatter.ejs') %>
+
+<%- include('../includes/footer.ejs') %>
+
+<!-- ----------------------- -->
+
+<%- include('../includes/end.ejs') %>

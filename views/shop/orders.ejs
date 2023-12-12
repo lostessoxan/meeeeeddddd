@@ -1,0 +1,64 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/orders.css">
+</head>
+<body>
+
+<%- include('../includes/navigation.ejs') %>
+<div class="container">
+    <h2 class="page-title"><i class="uil uil-clipboard"></i> Orders</h2>
+
+    <% if (orders && orders.length > 0) { %>
+        <div class="orders">
+            <% orders.forEach(order => { %>
+                <div class="wrapper">
+                    <div class="head">
+                        <h3>Order ID: <%= order._id %></h3>
+                    
+                        <div class="totalPrice">
+                            <p>Total Sum: $<%= order.totalPrice.toFixed(2) %></p>
+                        </div>
+                    </div>
+
+                    <div class="order-wrapper">
+                            <% order.products.forEach(p => { %>
+                                <% console.log('productttt', p) %>
+                                <div class="order">
+                                    <div class="image">
+                                        <img src="<%= p.product.imageUrl %>" alt="product image">
+                                    </div>
+                                    <div class="content">
+                                        <div class="content__ids">
+                                            <a href="/orders/<%= order._id %>">Invoice</a>
+                                            <p><small>P. ID:</small> <span><%= p.product._id %></span></p>
+                                            <p><small>User. ID:</small> <span><%= p.product.userId %></span></p>
+                                        </div>
+                                        <div class="content__desc">
+                                            <div>
+                                                <p><span>Название</span>: <%= p.product.title %></p>
+                                                <p><span>Кол-во</span>: <%= p.quantity %></p>
+                                            </div>
+                                            <small><%= p.product.description %></small>
+                                        </div>
+                                    </div>
+                                    <div class="price">
+                                        <p>$<%= p.product.price %></p>
+                                    </div>
+                                </div>
+                            <% }) %>
+                    </div>
+
+                    
+                </div>
+
+                
+            <% }) %>
+        </div>
+    <% } else { %>
+        <p class="no-items">Empty..</p>
+    <% }  %>
+</div>
+
+<%- include('../includes/newslatter.ejs') %>
+<%- include('../includes/footer.ejs') %>
+
+<%- include('../includes/end.ejs') %>

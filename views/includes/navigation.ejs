@@ -1,0 +1,45 @@
+<nav class="navbar">
+    <a href="/" class="logo">
+        Креоген 
+    </a>
+
+    <ul class="navbar__list links">
+        <li class="navbar__item"><a class="<%= path === '/' ? 'active' : '' %>" href="/"><span>Главная</span><i class="uil uil-shopping-basket"></i></a></li>
+        <li class="navbar__item"><a class="<%= path === '/products' ? 'active' : '' %>" href="/products"><span>Продукты</span><i class="uil uil-box"></i></a></li>
+        <% if (isAuthenticated) { %>
+            <li class="navbar__item"><a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart"><span>Корзина</span><i class="uil uil-shopping-cart-alt"></i></a></li>
+            <li class="navbar__item"><a class="<%= path === '/orders' ? 'active' : '' %>" href="/orders"><span>Заказы</span><i class="uil uil-clipboard"></i></a></li>
+            <li class="navbar__item"><a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product"><span>Добавить Продукт</span><i class="uil uil-plus"></i></a></li>
+            <li class="navbar__item"><a class="<%= path === '/admin/products' ? 'active' : '' %>" href="/admin/products"><span>Мои продукты</span><i class="uil uil-book-reader"></i></a></li>
+        <% } %>
+    </ul>
+
+    
+
+    <ul class="navbar__list login-signup">
+        <div class="theme">
+            <i class="uil uil-moon"></i>
+        </div>
+        <% if (isAuthenticated) { %> 
+                <li class="navbar__item">
+                    <form action="/logout" method="post">
+                        <input
+                            type="hidden"
+                            name="_csrf"
+                            value="<%= csrfToken %>"
+                        />
+                        <button class="logout-btn"><i class="uil uil-signout"></i><span> Logout</span></button>
+                    </form>
+                </li>
+        <% } else { %>
+            <li class="navbar__item"><a href="/login">Login</a></li>
+            <li class="navbar__item"><a href="/signup">Sign up</a></li>
+        <% } %>
+    </ul>
+
+    <div class="touch">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</nav>

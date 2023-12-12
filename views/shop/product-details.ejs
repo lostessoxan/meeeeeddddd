@@ -1,0 +1,40 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/product-details.css">
+</head>
+<body>
+
+    <%- include('../includes/navigation.ejs') %>
+<div class="container">
+    <h2 class="page-title">Product Details</h2>
+
+    <div class="wrapper">
+        <div class="left">
+            <img src="https://i.pinimg.com/originals/8f/11/51/8f11510ae6edd38c06922691a6f5caaa.png" alt="">
+        </div>
+        <div class="right">
+            <div class="product">
+                <div class="product__imageUrl">
+                    <img src="/<%= product.imageUrl %>" alt="product image">
+                </div>
+                <p class="product__title"><span>Title:</span><br><%= product.title %></p>
+                <p class="product__price"><span>Price:</span><br>$<%= product.price %></p>
+                <p class="product__description"><span>Description:</span><br><%= product.description %></p>
+        
+                <% if (isAuthenticated) { %>
+                    <div class="product__actions">
+                        <form action="/cart" method="post">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <button class="btn">Add To Cart</button>
+                            <input type="hidden" name="productId" value="<%= product._id %>">
+                        </form>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../includes/newslatter.ejs') %>
+<%- include('../includes/footer.ejs') %>
+
+<%- include('../includes/end.ejs') %>

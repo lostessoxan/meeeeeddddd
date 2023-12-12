@@ -1,0 +1,77 @@
+:root {
+    --touch-width: 40px;
+    --touch-height: 25px;
+    --touch-item: 3px;
+    --touch-color: var(--white);
+    --translate: calc(var(--touch-height) / 2 - var(--touch-item) / 2);
+}
+
+.touch {
+    width: var(--touch-width);
+    height: var(--touch-height);
+    display: none;
+    flex-wrap: wrap;
+    align-content: space-between;
+    cursor: pointer;
+}
+
+.touch > div {
+    width: 100%;
+    height: var(--touch-item);
+    background: var(--white);
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.active > div:nth-child(1) {
+    transform: translateY(var(--translate)) rotate(-45deg);
+}
+
+.active > div:nth-child(3) {
+    transform: translateY(calc(var(--translate) * -1)) rotate(45deg);
+}
+
+.active > div:nth-child(2) {
+    opacity: 0;
+}
+
+/* ================= */
+
+@media screen and (max-width: 610px) {
+    .touch {
+        display: flex;
+    }
+
+    .navbar {
+        position: relative;
+    }
+
+    .navbar__list,
+    .theme {
+        /* display: none; */
+    }
+
+    .navbar__list.links {
+        transition: all 200ms ease;
+        border-top: 2px solid var(--white);
+        background: var(--dark);
+        position: absolute;
+        top: -200%;
+        left: 0;
+        right: 0;
+        justify-content: space-between;
+        padding: 1.5rem 1rem;
+        opacity: 0;
+    }
+    .navbar__list.links.active {
+        top: 100%;
+        opacity: 1;
+    }
+    .navbar__list.links * {
+        font-size: 2.5rem;
+    }
+
+    .logout-btn span {
+        display: none;
+    }
+}

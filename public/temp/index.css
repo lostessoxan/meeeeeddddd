@@ -1,0 +1,16 @@
+.hero-section {
+}
+
+.hero {
+    width: calc(var(--index) * 25);
+    position: absolute;
+    left: 37vw;
+    top: 15vh;
+}
+
+.main-title {
+    font-size: calc(var(--index) * 6);
+    position: absolute;
+    width: min-content;
+    bottom: 7vh;
+}

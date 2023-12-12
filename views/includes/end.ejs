@@ -1,0 +1,22 @@
+<script>
+    const theme = document.querySelector('.theme')
+    const body = document.body
+
+    theme.addEventListener('click', (e) => {
+        body.classList.toggle('dark')
+        theme.querySelector('i').className = theme.querySelector('i').className === 'uil uil-sun' ? 'uil uil-moon' : "uil uil-sun"
+    })
+
+    // =====================
+
+    const burger = document.querySelector('.touch');
+    const links = document.querySelector('.navbar__list.links')
+
+    burger.addEventListener('click', function() {
+        this.classList.toggle('active')
+        if(links.classList.contains('active')) links.classList.remove('active')
+        else links.classList.add('active')
+    })
+</script>
+</body>
+</html>

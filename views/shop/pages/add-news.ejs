@@ -1,0 +1,71 @@
+<%- include('../../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/css/add-product.css">
+
+</head>
+
+<style>
+    .add-product-form {
+        max-width: 35rem;
+    }
+</style>
+
+<body>
+
+<%- include('../../includes/navigation.ejs') %>
+<div class="container">
+    <h2 class="page-title"><i class="uil uil-shopping-basket"></i> Shop 🌌</h2>
+</div>
+
+<!-- ----------------------- -->
+
+<%- include('../../includes/shop-navigation.ejs') %>
+
+<div class="main-title">Добавить Новость</div>
+
+<div class="container">
+    <div class="wrapper">
+        <div class="left">
+            <img src="/img/services/med-bg.jpg" alt="">
+        </div>
+        <div class="right">
+            <form class="add-product-form" action="/admin/<%= editMode ? 'edit-news' : 'add-news' %>" method="post">
+                <div class="form-control">
+                    <label for="title">Title</label>
+                    <input id="title" name="title" type="text" value="<%= editMode ? article.title : '' %>">
+                </div>
+                <div class="form-control">
+                    <label for="imageUrl">Image Url</label>
+                    <input id="imageUrl" name="imageUrl" type="text" value="<%= editMode ? article.imageUrl : '' %>">
+                </div>
+                <div class="form-control">
+                    <label for="date">Date</label>
+                    <input id="date" name="date" value="<%= editMode ? article.date : '' %>">
+                </div>
+                <div class="form-control">
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description" rows="5"><%= editMode ? article.description : '' %></textarea>
+                </div>
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <% if (editMode) { %>
+                    <input type="hidden" name="articleId" value="<%= article._id %>">
+                <% } %>
+                <button>
+                    <% if (editMode) { %>
+                        Обновить
+                    <% } else { %>
+                        Добавить
+                    <% } %>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../../includes/newslatter.ejs') %>
+
+<%- include('../../includes/footer.ejs') %>
+
+<!-- ----------------------- -->
+
+<%- include('../../includes/end.ejs') %>

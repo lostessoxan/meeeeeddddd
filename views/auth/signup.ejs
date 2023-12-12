@@ -1,0 +1,35 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/products.css">
+<link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+
+    <%- include('../includes/navigation.ejs') %>
+<div class="container">
+    <h2 class="page-title">Sign up</h2>
+
+    <% if (errorMessage && errorMessage.length > 0) { %>
+        <div class="user-message user-message__error"><%= errorMessage %></div>
+    <% } %>
+
+    <form class="login" action="/signup" method="post">
+        <div class="form-control">
+            <label for="email"><i class="uil uil-envelope"></i> E-Mail</label>
+            <input class="<%= errorsArray.includes('email') ? 'invalid' : '' %>" id="email" name="email" type="text" value="<%= oldInput.email %>">
+        </div>
+        <div class="form-control">
+            <label for="password"><i class="uil uil-key-skeleton"></i> Password</label>
+            <input class="<%= errorsArray.includes('password') ? 'invalid' : '' %>" id="password" name="password" type="password" value="<%= oldInput.password %>">
+        </div>
+        <div class="form-control">
+            <label for="confirmPassword"><i class="uil uil-asterisk"></i> Confirm Password</label>
+            <input class="<%= errorsArray.includes('confirmPassword') ? 'invalid' : '' %>" id="confirmPassword" name="confirmPassword" type="password" value="<%= oldInput.confirmPassword %>">
+        </div>
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <button class="btn">Sign up</button>
+
+        <p>Already have an account? <a href="/login">Login</a></p>
+    </form>
+</div>
+
+<%- include('../includes/end.ejs') %>

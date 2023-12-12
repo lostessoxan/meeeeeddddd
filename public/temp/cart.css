@@ -1,0 +1,135 @@
+.totalPrice {
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.totalPrice span {
+    display: inline-block;
+    padding: 0.2rem;
+    background: var(--primary-dark);
+    color: var(--white);
+    border-radius: 3px;
+    font-size: 1rem;
+}
+
+.cart-products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.cart-products__item {
+    max-width: 18%;
+    border: 1px solid var(--dark);
+    background: var(--grey);
+    font-size: 1rem;
+    padding: 1rem;
+    position: relative;
+}
+@media screen and (max-width: 1200px) {
+    .cart-products__item {
+        max-width: 33.33%;
+    }
+}
+@media screen and (max-width: 590px) {
+    .cart-products__item {
+        max-width: 50%;
+    }
+}
+@media screen and (max-width: 450px) {
+    .cart-products__item {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+.trash {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    background: var(--white);
+    border-left: 1px solid var(--dark);
+    border-bottom: 1px solid var(--dark);
+    padding: 0.5rem;
+    transition: all 65ms linear;
+}
+
+.trash button {
+    background: none;
+    cursor: pointer;
+}
+
+.trash .uil {
+    color: var(--danger);
+    font-size: 1.35rem;
+    background: transparent;
+}
+
+.trash:hover {
+    background: var(--danger);
+}
+
+.trash:hover .uil {
+    color: var(--white);
+}
+
+.cart-products__item img {
+    width: 100%;
+    object-fit: contain;
+    height: 120px;
+}
+
+.cart-products__item p {
+    color: var(--black);
+}
+
+.cart-products__item .title {
+    margin-top: 0.5rem;
+}
+
+.cart-products__item .price {
+    margin-top: 0.65rem;
+}
+
+.cart-products__item .qty {
+    margin-top: 0.5rem;
+    width: 100%;
+    padding: 0.5rem;
+    background: var(--primary-dark);
+    color: var(--white);
+    text-align: center;
+}
+
+.cart-products__item span {
+    color: var(--primary-dark);
+}
+
+.up-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--black);
+}
+
+.up-line form button {
+    background: none;
+}
+
+.up-line .make-order {
+    background: var(--dark);
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    color: var(--white);
+    transition: all 100ms linear;
+}
+
+.up-line .make-order:hover {
+    background: var(--primary-dark);
+    border-radius: 20px;
+}

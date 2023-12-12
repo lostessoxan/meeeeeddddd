@@ -1,0 +1,48 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/cart.css">
+</head>
+<body>
+
+<%- include('../includes/navigation.ejs') %>
+<div class="container">
+    <h2 class="page-title"><i class="uil uil-shopping-cart-alt"></i> Cart</h2>
+
+    <div class="up-line">
+        <h4 class="totalPrice">Total Price: <span>$<%= totalPrice.toFixed(3) %></span></h4>
+        <form action="/orders" method="post">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button>
+                <% if (products && products.length > 0) { %>
+                    <p class="make-order">Make Order</p>
+                <% } %>
+            </button>
+        </form>
+    </div>
+
+    <% if (products && products.length > 0) { %>
+        <div class="cart-products">
+            <% products.forEach(product => { %>
+                <% if(product.productId) { %>
+                    <div class="cart-products__item">
+                        <img src="<%= product.productId.imageUrl%>" alt="">
+                        <p class="title"><span>Title:</span> <%= product.productId.title %></p>
+                        <p class="price"><span>Price:</span> $<%= product.productId.price %></p>
+                        <p class="qty">Quantity: <%= product.quantity %></p>
+                        <form class="trash" action="/cart-delete" method="post">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <input type="hidden" name="productId" value="<%=  product.productId._id %>">
+                            <button><i class="uil uil-trash"></i></button>
+                        </form>
+                     </div>
+                <% } %>
+            <% }) %>
+        </div>
+    <% } else { %>
+        <p class="no-items">No items..</p>
+    <% } %>
+</div>
+
+<%- include('../includes/newslatter.ejs') %>
+<%- include('../includes/footer.ejs') %>
+
+<%- include('../includes/end.ejs') %>

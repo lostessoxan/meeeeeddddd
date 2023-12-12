@@ -1,0 +1,65 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/add-product.css">
+</head>
+<body>
+
+    <%- include('../includes/navigation.ejs') %>
+<div class="container">
+    <h2 class="page-title">
+        <% if (editMode) { %>
+            <i class="uil uil-edit"></i> Edit Product
+        <% } else { %>
+            <i class="uil uil-plus"></i> Add Product
+        <% } %>
+    </h2>
+
+    <% if (errorMessage && errorMessage.length > 0) { %>
+        <div class="user-message user-message__error"><%= errorMessage %></div>
+    <% } %>
+
+    <div class="wrapper">
+        <div class="left">
+            <img src="https://phonoteka.org/uploads/posts/2021-07/1625620347_11-phonoteka-org-p-medik-art-krasivo-11.jpg" alt="">
+        </div>
+        <div class="right">
+            <form class="add-product-form" action="/admin/<%= editMode ? 'edit-product' : 'add-product' %>" method="post" enctype="multipart/form-data">
+                <div class="form-control">
+                    <label for="title">Title</label>
+                    <input class="<%= errorsArray.includes('title') ? 'invalid' : '' %>" id="title" name="title" type="text" value="<%= editMode ? product.title : '' %>">
+                </div>
+                <!-- <div class="form-control">
+                    <label for="imageUrl">Image Url</label>
+                    <input id="imageUrl" name="imageUrl" type="text" value="<%= editMode ? product.imageUrl : '' %>">
+                </div> -->
+                <div class="form-control">
+                    <label for="image">Image</label>
+                    <input id="image" name="image" type="file">
+                </div>
+                <div class="form-control">
+                    <label for="price">Price</label>
+                    <input class="<%= errorsArray.includes('price') ? 'invalid' : '' %>" id="price" name="price" type="number" step=".01" value="<%= editMode ? product.price : '' %>">
+                </div>
+                <div class="form-control">
+                    <label for="description">Description</label>
+                    <textarea class="<%= errorsArray.includes('description') ? 'invalid' : '' %>" name="description" id="description" rows="5"><%= editMode ? product.description : '' %></textarea>
+                </div>
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <% if (editMode) { %>
+                    <input type="hidden" name="productId" value="<%= product._id %>">
+                <% } %>
+                <button>
+                    <% if (editMode) { %>
+                        Update Product
+                    <% } else { %>
+                        Add Product
+                    <% } %>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../includes/newslatter.ejs') %>
+<%- include('../includes/footer.ejs') %>
+
+<%- include('../includes/end.ejs') %>
